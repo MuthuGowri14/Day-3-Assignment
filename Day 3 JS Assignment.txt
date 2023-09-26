@@ -1,0 +1,82 @@
+
+1.////------------------------------html----------------------/////
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="script.js"></script>
+</body>
+</html>
+////------------------------------------script.js---------------------------///
+let object1 = {name:"person1", age:5};
+let object2 = {age:5, name:"person1"};
+
+var bool=true;
+
+if(Object.keys(object1).length==Object.keys(object2).length){
+    for(let key in object1) { 
+        if(object1[key] == object2[key]) {
+            continue;
+        }
+        else {
+            bool=false;
+            break;
+        }
+    }
+}
+else {
+    bool=false;
+}
+console.log(bool);
+
+OUTPUT:
+true
+
+
+2.///---------------------script.js-----------------------------/////
+let xhr=new XMLHttpRequest();
+xhr.open('GET','https://restcountries.com/v3.1/all?username=1',true);
+xhr.onload=function(){
+    if(xhr.status=== 200){
+        let result=JSON.parse(xhr.response);
+        for(let i = 0 ; i< result.length ; i++){
+            console.log(result[i].flags);   
+    
+    }   }
+    else{
+        console.log("Error")
+    }
+}
+xhr.send();
+
+
+
+3.///----------------------------------script.js-----------------------------///
+var xhr = new XMLHttpRequest();
+xhr.open("GET","https://restcountries.com/v2/all",true);
+xhr.send();
+xhr.onload=function(){
+var result=JSON.parse(xhr.response);
+for(let i = 0 ; i< result.length ; i++){
+console.log(result[i].name);
+console.log(result[i].region);
+console.log(result[i].subregion); 
+console.log(result[i].population); 
+}
+}
+
+
+
+
+
+
+
+
+
+
+
